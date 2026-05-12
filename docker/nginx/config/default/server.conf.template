@@ -1,0 +1,18 @@
+listen 443 quic reuseport;
+listen [::]:443 quic reuseport;
+
+listen 443 ssl reuseport;
+listen [::]:443 ssl reuseport;
+
+http2 on;
+quic_retry on;
+
+server_name ${HOST};
+root /var/www/html;
+
+add_header alt-svc 'h3=":443"; ma=86400';
+
+add_header X-Frame-Options "SAMEORIGIN";
+add_header X-Content-Type-Options "nosniff";
+
+charset utf-8;

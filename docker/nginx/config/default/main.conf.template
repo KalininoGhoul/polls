@@ -1,0 +1,2 @@
+worker_processes ${WORKER_PROCESSES};
+worker_rlimit_nofile ${WORKER_RLIMIT_NOFILE};

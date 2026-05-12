@@ -1,0 +1,16 @@
+version: '3'
+rpc:
+  listen: 'tcp://127.0.0.1:6001'
+
+server:
+  command: 'php /var/www/html/vendor/bin/rr-worker start'
+
+http:
+  address: 0.0.0.0:8080
+  fcgi:
+    address: 0.0.0.0:9000
+  pool:
+    debug: ${RR_DEBUG}
+    num_workers: ${RR_HTTP_NUM_WORKERS}
+    supervisor:
+      exec_ttl: 60s
