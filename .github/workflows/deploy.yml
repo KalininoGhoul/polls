@@ -43,6 +43,8 @@ jobs:
           target: production
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.REPOSITORY }}-nginx:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Docker pull & up
         uses: appleboy/ssh-action@v1.2.5
