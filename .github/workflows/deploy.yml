@@ -73,5 +73,5 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/polls
+            cd /var/www/html/polls
             make pull up
