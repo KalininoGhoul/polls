@@ -1,4 +1,8 @@
-FROM nginxinc/nginx-unprivileged:1.30
+FROM nginxinc/nginx-unprivileged:1.30 AS base
 
 COPY docker/nginx/config/nginx.conf /etc/nginx/nginx.conf
 COPY docker/nginx/config/default /etc/nginx/templates
+
+FROM base AS production
+
+COPY backend/public/vendor /var/www/html/vendor
