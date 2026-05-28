@@ -20,6 +20,8 @@ services:
         target: /tmp/nginx_cache
     environment:
       HOST: "localhost"
+      TLS_CERT: "localhost.crt"
+      TLS_CERT_KEY: "localhost.key"
       WORKER_PROCESSES: 6
       WORKER_RLIMIT_NOFILE: 1024
       FASTCGI_CACHE_MAX_SIZE: "50m"

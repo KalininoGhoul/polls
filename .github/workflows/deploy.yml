@@ -61,7 +61,7 @@ jobs:
           file: ./docker/nginx/Dockerfile
           target: production
           push: true
-          tags: ${{ steps.app-image-meta.outputs.tags }}
+          tags: ${{ steps.nginx-image-meta.outputs.tags }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
