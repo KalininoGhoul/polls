@@ -51,6 +51,7 @@ RUN if getent group ${GID}; then \
 RUN chown -R www:www /var/log && \
     mkdir -p /var/www/html/storage && \
     chown -R www:www /var/www/html/storage && \
+    mkdir -p /var/www/html/bootstrap && \
     chown -R www:www /var/www/html/bootstrap && \
     chown -R www:www /entrypoint.sh && \
     chmod u+x /entrypoint.sh
