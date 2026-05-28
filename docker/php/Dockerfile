@@ -73,4 +73,7 @@ FROM base AS production
 
 COPY backend /var/www/html
 
+RUN chown -R www:www /var/www/html/storage && \
+    chown -R www:www /var/www/html/bootstrap
+
 USER www
