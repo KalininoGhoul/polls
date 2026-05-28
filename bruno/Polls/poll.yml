@@ -8,7 +8,7 @@ http:
   url: "{{baseUrl}}/api/polls/:pollSlug"
   params:
     - name: pollSlug
-      value: "3"
+      value: test
       type: path
   auth: inherit
 

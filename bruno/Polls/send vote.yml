@@ -8,13 +8,13 @@ http:
   url: "{{baseUrl}}/api/polls/:pollSlug/vote"
   params:
     - name: pollSlug
-      value: "3"
+      value: test
       type: path
   body:
     type: json
     data: |-
       {
-        "options": [28, 29]
+        "options": [2]
       }
   auth:
     type: bearer

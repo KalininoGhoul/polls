@@ -62,8 +62,6 @@ jobs:
           target: production
           push: true
           tags: ${{ steps.nginx-image-meta.outputs.tags }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
 
       - name: Docker pull & up
         uses: appleboy/ssh-action@v1.2.5

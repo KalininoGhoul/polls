@@ -1,0 +1,4 @@
+name: production
+variables:
+  - name: baseUrl
+    value: https://polls4.tw1.ru
