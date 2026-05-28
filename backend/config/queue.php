@@ -89,6 +89,12 @@ return [
             ],
         ],
 
+        'roadrunner' => [
+            'driver' => 'roadrunner',
+            'queue' => env('RR_QUEUE', 'default'),
+            'retry_after' => (int) env('RR_QUEUE_RETRY_AFTER', 90),
+            'after_commit' => false,
+        ],
     ],
 
     /*

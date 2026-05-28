@@ -1,9 +1,8 @@
 project=polls
 
 build:
-	docker build -t polls-php -f ./docker/php/Dockerfile . && \
-	docker build -t polls-php-dev -f ./docker/php/dev.Dockerfile . && \
-	docker build -t polls-nginx -f ./docker/nginx/Dockerfile .
+	docker build --target development --tag polls-php -f ./docker/php/Dockerfile . && \
+	docker build --tag polls-nginx -f ./docker/nginx/Dockerfile .
 
 up:
 	docker compose -p $(project) up -d

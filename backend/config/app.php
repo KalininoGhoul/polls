@@ -1,5 +1,13 @@
 <?php
 
+use App\Exceptions\MethodNotAllowedHttpException;
+use App\Exceptions\NotFoundException;
+use App\Exceptions\ValidationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Validation\ValidationException as LaravelValidationException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException as SymphonyMethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 return [
 
     /*
@@ -65,7 +73,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Krasnoyarsk',
 
     /*
     |--------------------------------------------------------------------------
@@ -123,4 +131,9 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'errors_map' => [
+        ModelNotFoundException::class => NotFoundException::class,
+        NotFoundHttpException::class => NotFoundException::class,
+        LaravelValidationException::class => ValidationException::class
+    ],
 ];

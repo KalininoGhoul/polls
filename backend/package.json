@@ -12,5 +12,14 @@
         "laravel-vite-plugin": "^3.0.0",
         "tailwindcss": "^4.0.0",
         "vite": "^8.0.0"
+    },
+    "dependencies": {
+        "@lexical/code": "^0.44.0",
+        "@lexical/link": "^0.44.0",
+        "@lexical/list": "^0.44.0",
+        "@lexical/markdown": "^0.44.0",
+        "@lexical/rich-text": "^0.44.0",
+        "@lexical/utils": "^0.44.0",
+        "lexical": "^0.44.0"
     }
 }
