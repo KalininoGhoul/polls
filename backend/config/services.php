@@ -35,4 +35,16 @@ return [
         ],
     ],
 
+    'centrifugal' => [
+        'token' => [
+            'secret' => env('CENTRIFUGAL_CLIENT_TOKEN_SECRET', ''),
+            'expiration' => 600,
+        ],
+
+        'api' => [
+            'key' => env('CENTRIFUGAL_API_KEY', 'api-key'),
+            'base_url' => env('CENTRIFUGAL_BASE_URL', 'http://centrifugo:8000/api'),
+        ],
+    ]
+
 ];

@@ -134,6 +134,14 @@ return [
             'days' => env('LOG_DAILY_DAYS', 7),
             'replace_placeholders' => true,
         ],
+
+        'centrifugal' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/centrifugal/laravel.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 7),
+            'replace_placeholders' => true,
+        ],
     ],
 
 ];

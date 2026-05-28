@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SendCodeController;
+use App\Http\Controllers\CentrifugalTokenController;
 use App\Http\Controllers\Poll\PollController;
 use App\Http\Controllers\Poll\SendVoteController;
 use Illuminate\Support\Facades\Route;
@@ -19,3 +20,5 @@ Route::prefix('auth')->group(function () {
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/polls/{poll:slug}/vote', SendVoteController::class);
 });
+
+Route::get('{poll:slug}/connection/token', CentrifugalTokenController::class);

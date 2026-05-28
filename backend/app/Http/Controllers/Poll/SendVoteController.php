@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Poll;
 
 use App\Actions\Poll\SendVoteAction;
+use App\Events\PollVoteAcceptedEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Poll\SendVoteRequest;
 use App\Models\Poll;
@@ -21,6 +22,8 @@ class SendVoteController extends Controller
     ): Response
     {
         $sendVoteAction->handle($user, $poll, $request->options);
+
+        event(new PollVoteAcceptedEvent($poll));
 
         return response()->noContent();
     }

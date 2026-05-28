@@ -8,7 +8,6 @@ use App\Exceptions\Poll\UserAlreadyVotedException;
 use App\Models\Poll;
 use App\Models\PollOption;
 use App\Models\User;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 
 class SendVoteAction

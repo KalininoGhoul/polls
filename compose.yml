@@ -39,8 +39,10 @@ services:
       XDEBUG_SESSION: "1"
       RR_DEBUG: "true"
       RR_HTTP_NUM_WORKERS: "1"
+      CENTRIFUGAL_CLIENT_TOKEN_SECRET: "6fe1a04d7da675316c16f089c7631e3256921a7b5b8afdd21c88107d3fd9e0b1"
     depends_on:
       - postgres
+      - centrifugo
 
   postgres:
     image: postgres:18.3
@@ -52,6 +54,20 @@ services:
       POSTGRES_PASSWORD: "pass"
     volumes:
       - postgres:/var/lib/postgresql/18/docker
+
+  centrifugo:
+    image: centrifugo/centrifugo:v6.8
+    environment:
+      CENTRIFUGO_UNI_SSE_ENABLED: "true"
+      CENTRIFUGO_WEBSOCKET_DISABLED: "true"
+      CENTRIFUGO_CLIENT_TOKEN_HMAC_SECRET_KEY: "6fe1a04d7da675316c16f089c7631e3256921a7b5b8afdd21c88107d3fd9e0b1"
+      CENTRIFUGO_CHANNEL_WITHOUT_NAMESPACE_ALLOW_SUBSCRIBE_FOR_ANONYMOUS: "true"
+      CENTRIFUGO_LOG_LEVEL: "debug"
+      CENTRIFUGO_HTTP_API_KEY: "api-key"
+    ulimits:
+      nofile:
+        soft: 1024
+        hard: 1024
 
 volumes:
   postgres:

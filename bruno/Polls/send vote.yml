@@ -14,7 +14,7 @@ http:
     type: json
     data: |-
       {
-        "options": [2]
+        "options": [1]
       }
   auth:
     type: bearer
