@@ -10,8 +10,11 @@ env:
   REPOSITORY: ${{ github.repository }}
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
