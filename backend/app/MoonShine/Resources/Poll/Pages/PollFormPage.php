@@ -15,7 +15,6 @@ use MoonShine\Crud\JsonResponse;
 use MoonShine\Laravel\Fields\Slug;
 use MoonShine\Laravel\Pages\Crud\FormPage;
 use MoonShine\Support\Attributes\AsyncMethod;
-use MoonShine\Support\Enums\ToastType;
 use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\ActionButton;
 use MoonShine\UI\Components\Layout\Box;
@@ -163,14 +162,6 @@ class PollFormPage extends FormPage
             'image_path' => [
                 'sometimes',
                 Rule::requiredIf(!request()->has('hidden_image_path')),
-            ],
-            'poll_options' => [
-                'array',
-                'min:1',
-                'max:' . Poll::MAX_OPTIONS,
-            ],
-            'poll_options.*.name' => [
-                'required',
             ],
             'start_at' => [
                 'nullable',
