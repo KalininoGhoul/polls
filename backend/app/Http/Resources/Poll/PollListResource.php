@@ -16,7 +16,7 @@ class PollListResource extends JsonResource
         return [
             'slug' => $this->slug,
             'name' => $this->name,
-            'votes_count' => $this->votes_count ?? 0,
+            'vote_count' => $this->vote_count ?? 0,
             'image_path' => fileUrl($this->image_path),
         ];
     }

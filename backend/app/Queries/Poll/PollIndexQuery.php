@@ -21,8 +21,16 @@ class PollIndexQuery
         $this->query->active();
 
         return $this
+            ->loadRelations()
             ->addOrderBy($request)
             ->paginate($request);
+    }
+
+    private function loadRelations(): self
+    {
+        $this->query->withCount('votes as vote_count');
+
+        return $this;
     }
 
     private function addOrderBy(PollIndexRequest $request): self
